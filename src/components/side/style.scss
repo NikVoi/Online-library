@@ -1,0 +1,56 @@
+.side {
+    width: 100%;
+    height: 100%;
+
+
+    background-color: #27282A;
+    background-image: url('../../assets/img/sideBG/Ellipse\ 54\ \(1\).png');
+    background-repeat: no-repeat;
+    background-position: -24rem -12rem;
+    background-size: 260% 70%;
+}
+
+.side__wrapper {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+
+    padding: 1rem;
+}
+
+.side__input {
+    width: 100%;
+}
+
+label {
+    font-family: 'Ubuntu', sans-serif;
+    display: block;
+}
+
+input {
+    all: unset;
+}
+
+.side__input {
+    background-color: none;
+
+    height: 2rem;
+    font-size: 1.5rem;
+    color: white;
+
+    border: none;
+    border-bottom: .2rem solid black;
+    
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+
+    &:focus {
+        border-bottom: .2rem solid black;
+    }
+}
+
+
+.form__input {
+    position: relative;
+}

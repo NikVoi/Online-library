@@ -1,10 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+
+import './global/style.scss'
+import Header from './components/header/header'
+import Main from './components/body/body'
+import Side from './components/side/side'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <div className="wrapper">
+      <Side />
+      <Header />
+      <Main />
+    </div>
+  </React.StrictMode>
 )

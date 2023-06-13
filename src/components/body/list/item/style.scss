@@ -1,0 +1,47 @@
+.item {
+    background-color: #292A2C;
+    padding: 1rem;
+    width: 13rem;
+
+    display: inline-block;
+    margin: .5rem;
+
+    border-radius: 0.5rem;
+
+    & a {
+        color: white;
+        text-decoration: none;
+    }
+
+}
+
+.item__img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 1rem;
+
+    & img {
+        width: 10rem;
+        height: 10rem;
+    }
+}
+
+
+.item__name {
+    font-size: 2rem;
+    font-weight: bold;
+
+    margin-bottom: .8rem;
+}
+
+.item__descr {
+    font-size: 1.5rem;
+
+    margin-bottom: .8rem;
+}
+
+.item__writer {
+    font-size: 1.5;
+}
