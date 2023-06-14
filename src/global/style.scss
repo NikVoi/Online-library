@@ -17,6 +17,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	font-family: 'Suez One', serif;
 }
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -28,7 +29,9 @@ html {
 
 }
 body {
+	height: 100%;
 	line-height: 1;
+	font-family: 'Suez One', serif;
 }
 ol, ul {
 	list-style: none;
@@ -46,6 +49,10 @@ table {
 	border-spacing: 0;
 }
 
+#root {
+	height: 100%;
+	overflow: hidden;
+}
 
 
 body {
@@ -55,7 +62,7 @@ body {
 
 
 .wrapper {
-	height: inherit;
+	height: 100%;
 
 	display: grid;
 	grid-template-areas: 
@@ -63,9 +70,8 @@ body {
 		"side main main"
 		"side main main";
 	
-	grid-template-rows: 5rem 1fr 1rem;
+	grid-template-rows: 5rem 1fr 1fr;
 	grid-template-columns: 20% 1fr 15%;
-	margin: 0;
 }
 
 .header {
@@ -78,18 +84,18 @@ body {
 	grid-area: main;
 }
 
-
 .button--search {	
-	position: absolute;
-	top: 2rem;
-	right: 1rem;
-
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	width: 1rem;
-	height: 1rem;
+	height: 100%;
 
 	background: none;
 	border: none;
+
+	cursor: pointer;
 	
 	& img {
 		width:  1.4rem;

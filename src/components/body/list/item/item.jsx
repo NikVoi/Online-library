@@ -21,7 +21,7 @@ const Item = (props) => {
                                         {item.volumeInfo.authors}
                                     </div>
                                     <div className="item__descr">
-                                        {props.descr}
+                                        {item.volumeInfo.subtitle}
                                     </div>
                                     <div className="item__writer">
                                         {/* {item.volumeInfo.} */}

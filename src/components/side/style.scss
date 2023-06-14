@@ -6,8 +6,8 @@
     background-color: #27282A;
     background-image: url('../../assets/img/sideBG/Ellipse\ 54\ \(1\).png');
     background-repeat: no-repeat;
-    background-position: -24rem -12rem;
-    background-size: 260% 70%;
+    background-position: -25rem -10rem;
+    background-size: 280% 100%;
 }
 
 .side__wrapper {
@@ -40,18 +40,26 @@ input {
     color: white;
 
     border: none;
-    border-bottom: .2rem solid black;
+   
     
     margin-bottom: .5rem;
     margin-top: .5rem;
-
-    &:focus {
-        border-bottom: .2rem solid black;
-    }
+    margin-right: 0.5rem;
 }
 
 .side__search {
-    position: relative;
+    display: flex;
+
+
+    & span {
+        font-size: 1.2rem;
+    }
+
+    border-bottom: .2rem solid black;
+    
+    &:focus {
+        border-bottom: .2rem solid black;
+    }
 }
 
 .form__input {
