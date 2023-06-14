@@ -4,12 +4,12 @@ import './style.scss'
 
 
 
-const Main = () => {
+const Main = (props) => {
     return ( 
         <main className='main'>
             <div className="main__title">LOGO Playlists</div>
 
-            <List/>
+            <List book = {props.book}/>
         </main>
      );
 }

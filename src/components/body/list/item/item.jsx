@@ -2,24 +2,37 @@ import React from 'react'
 import './style.scss';
 
 
-const Item = () => {
-    return ( 
-        <div className='item'>
-            <a href='#' className="item__link">
-                <div className="item__img">
-                    <img src="https://cdn1.ozone.ru/s3/multimedia-v/6114692215.jpg" alt="book img" />
-                </div>
-                <div className="item__name">
-                    js basik
-                </div>
-                <div className="item__descr">
-                    computers
-                </div>
-                <div className="item__writer">
-                    devid lesli
-                </div>
-            </a>
-        </div>
+const Item = (props) => {
+    console.log(props.book)
+
+    return (
+        <> 
+            {
+                props.book.map((item) => {
+                    let thumbnail = item.volumeInfo.imageLinks &&  item.volumeInfo.imageLinks.smallThumbnail
+                    if (thumbnail != undefined){
+                        return (
+                            <div className='item'>
+                                <a href='#' className="item__link">
+                                    <div className="item__img">
+                                        <img src={thumbnail} alt="book img" />
+                                    </div>
+                                    <div className="item__name">
+                                        {item.volumeInfo.authors}
+                                    </div>
+                                    <div className="item__descr">
+                                        {props.descr}
+                                    </div>
+                                    <div className="item__writer">
+                                        {/* {item.volumeInfo.} */}
+                                    </div>
+                                </a>
+                            </div>
+                        )
+                    }
+                })
+            }
+        </>
      );
 }
  

@@ -8,11 +8,10 @@ import Side from './components/side/side'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <React.StrictMode>    
     <div className="wrapper">
       <Side />
       <Header />
-      <Main />
     </div>
   </React.StrictMode>
 )
