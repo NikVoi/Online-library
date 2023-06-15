@@ -6,6 +6,9 @@ import './style.scss'
 import img from  './search.svg'
 import Main from '../body/body'
 
+import logo from '../../assets/img/logo.png'
+import logo_2 from './logo.png'
+
 const Side = () => {
     const [search, setSearch] = useState("")
     const [bookData, setData] = useState([])
@@ -21,6 +24,16 @@ const Side = () => {
         <>
             <aside className="side">
                 <div className="side__wrapper">
+
+                <a href="#" className='side__link'>
+                    <div className="side__logo">
+                        <img src={logo} alt="Logo" />
+                        BookFinder
+                    </div>
+                </a>
+
+
+
                     <label htmlFor="book"><span>What's book  your saerch</span></label>
                     
                     <div className="side__search">

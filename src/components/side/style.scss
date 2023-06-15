@@ -65,3 +65,23 @@ input {
 .form__input {
     position: relative;
 }
+
+.side__link {
+    text-decoration: none;
+}
+
+.side__logo {
+    display: flex;
+    align-items: center;
+
+
+    font-size: 2rem;
+    color: white;
+
+    margin-bottom: 2rem;
+
+
+    & img {
+        margin-right: .5rem;
+    }
+}
