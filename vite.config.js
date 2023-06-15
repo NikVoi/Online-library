@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react-swc'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: './deploying-vite-project-exemple/',
+  base: './Task_2/',
   plugins: [react()],
 })
