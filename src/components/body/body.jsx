@@ -5,10 +5,10 @@ import Header from '../header/header'
 import Pagination from './pagination/Pagination';
 
 
-const Main = ({book, loading, booksItemsPage, totalBook, paginate}) => {
+const Main = ({book, loading, booksItemsPage, totalBook, paginate, activeSideMenu, setMenuActive}) => {
     return ( 
         <div className='wrapper__body'>
-            <Header />
+            <Header activeSideMenu = {activeSideMenu} setMenuActive = {setMenuActive}/>
 
             <main className='main'>
                 <div className="main__title">All Playlists</div>

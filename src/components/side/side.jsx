@@ -43,9 +43,12 @@ const Side = () => {
 
     const paginate = pageNumber => setCurrentPage(pageNumber)
 
+
+    const [activeSideMenu, setMenuActive] = useState(false)
+
     return ( 
-        <div className="potishion">
-            <aside className="side">
+        <div className={activeSideMenu ? 'potishion state' : 'potishion'}>
+            <aside className={activeSideMenu ? 'side active' : 'side'}>
                 <div className="side__wrapper">
 
                     <a href="#" className="side__link">
@@ -86,6 +89,8 @@ const Side = () => {
               booksItemsPage = {booksItemsPage}
               totalBook = {bookData.length}
               paginate = {paginate}
+              activeSideMenu = {activeSideMenu}
+              setMenuActive = {setMenuActive}
             />
         </div>
     );

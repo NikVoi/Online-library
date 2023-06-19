@@ -42,3 +42,9 @@
     justify-content: center;
     margin: .55rem;   
 }
+
+@media screen and (max-width: 640px) {
+    .pagination { 
+        padding-bottom: 2rem;
+    }
+}

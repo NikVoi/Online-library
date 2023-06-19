@@ -2,9 +2,7 @@ import React from 'react'
 import './style.scss'
 
 const Pagination = ({booksItemsPage, totalBook, paginate}) => {
-    const pageNumbers = [
-
-    ]
+    const pageNumbers = []
 
     for (let i = 1; i <= Math.ceil(totalBook / booksItemsPage); i++) {
         pageNumbers.push(i)

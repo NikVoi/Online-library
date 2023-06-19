@@ -13,6 +13,10 @@
 .potishion {
     display: flex;
     width: 100%;
+
+    &.state {
+        overflow: hidden;
+    }
 }
 .side__wrapper {
     display: flex;
@@ -75,12 +79,10 @@ input {
     display: flex;
     align-items: center;
 
-
     font-size: 2rem;
     color: white;
 
     margin-bottom: 2rem;
-
 
     & img {
         margin-right: .5rem;
@@ -90,15 +92,12 @@ input {
 .side__footer {
     display: flex;
 
-    
     padding: 1rem;
-
 }
-
-
 
 @media screen and (max-width: 640px){
     .side {
+        transition: .5s;
         position: absolute;
         top: 0;
         left: -17rem;
@@ -110,6 +109,10 @@ input {
         background-size: 350% 200%;
 
         height: 100%;
+
+        &.active {
+            left: 0rem;
+        }
     }
     .potishion {
         display: flex;
