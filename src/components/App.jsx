@@ -1,3 +1,4 @@
+import React from 'react'
 import Side from "./side/side";
 
 
