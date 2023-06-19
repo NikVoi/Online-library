@@ -5,6 +5,10 @@ import './style.scss'
 const Header = () => {
     return ( 
         <div className='header'>
+            <div className="header__mobile">
+                <span></span>
+            </div>
+
             <div className="header__titel">
                 Search for books
             </div>     

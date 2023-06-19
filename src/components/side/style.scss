@@ -94,3 +94,107 @@ input {
     padding: 1rem;
 
 }
+
+
+
+@media screen and (max-width: 640px){
+    .side {
+        position: absolute;
+        top: 0;
+        left: -17rem;
+
+        width: 16rem;
+
+        background-image: url('../../assets/sideBG/Ellipse\ 54\ \(1\).png');
+        background-position: -30rem -40rem;
+        background-size: 350% 200%;
+
+        height: 100%;
+    }
+    .potishion {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+    .side__wrapper {
+        display: flex;
+        flex-direction: column;
+    
+        padding: 1rem;
+        padding-top: 3.5rem;
+    }
+    
+    .side__input {
+        width: 100%;
+    }
+    
+    label {
+        font-family: 'Ubuntu', sans-serif;
+        display: block;
+    }
+    
+    input {
+        all: unset;
+    }
+    
+    .side__input {
+        background-color: none;
+    
+        height: 2rem;
+        font-size: 1.5rem;
+        color: white;
+    
+        border: none;
+       
+        
+        margin-bottom: .5rem;
+        margin-top: .5rem;
+        margin-right: 0.5rem;
+    }
+    
+    .side__search {
+        display: flex;
+    
+        & span {
+            font-size: 1.2rem;
+        }
+    
+        border-bottom: .2rem solid black;
+        
+        &:focus {
+            border-bottom: .2rem solid black;
+        }
+    }
+    
+    .form__input {
+        position: relative;
+    }
+    
+    .side__link {
+        text-decoration: none;
+    }
+    
+    .side__logo {
+        display: flex;
+        align-items: center;
+    
+    
+        font-size: 2rem;
+        color: white;
+    
+        margin-bottom: 2rem;
+    
+    
+        & img {
+            margin-right: .5rem;
+        }
+    }
+    
+    .side__footer {
+        display: flex;
+    
+        
+        padding: 1rem;
+    
+    }
+ }

@@ -1,8 +1,17 @@
 .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     background-color: #2C2539;
 
     padding: .5rem;
     font-size: 2rem;
+}
+
+.header__mobile {
+    width: 2rem;
+    height: 1.5rem;
 }
 
 .header__titel {
@@ -10,4 +19,41 @@
     font-weight: bold;
 
     text-align: right;
+}
+
+@media screen and (max-width: 640px) {
+
+    .header__titel {
+        font-size: 1.5rem;
+    }
+
+    .header__mobile {
+        cursor: pointer;
+
+        position: relative;
+        display: block;
+
+        &::after,
+        &::before {
+            content: '';
+            background: white;
+            position: absolute;
+            width: 100%;
+            height: 3px;
+
+            left: 0;
+        }
+
+        &::before {
+            bottom: 0;
+        }
+
+        & span {
+            position: absolute;
+            top: .65rem;
+            background-color: white;
+            width: 100%;
+            height: 3px;
+        }
+    }
 }

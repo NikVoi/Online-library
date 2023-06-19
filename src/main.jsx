@@ -2,13 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import './global/style.scss'
-import Side from './components/side/side'
-
-
-
+import './global/media.scss'
+import App from './components/app'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>    
-      <Side />
+  <React.StrictMode>  
+    <App />  
   </React.StrictMode>
 )

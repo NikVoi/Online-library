@@ -17,7 +17,7 @@ const Item = ({book, loading}) => {
                         let thumbnail = item.volumeInfo.imageLinks &&  item.volumeInfo.imageLinks.smallThumbnail
                         if (thumbnail != undefined){
                             return (
-                                <div className='item'>
+                                <div className='item' key={item.id}>
                                 <a href='#' className="item__link">
                                     <div className="item__img">
                                         <img src={thumbnail} alt="book img" />

@@ -22,9 +22,6 @@ const Side = () => {
 
     // }
 
-
-    // Load item 
-
     const [loading, setLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [booksItemsPage] = useState(12)
@@ -47,11 +44,11 @@ const Side = () => {
     const paginate = pageNumber => setCurrentPage(pageNumber)
 
     return ( 
-        <div className='potishion'>
+        <div className="potishion">
             <aside className="side">
                 <div className="side__wrapper">
 
-                    <a href="#" className='side__link'>
+                    <a href="#" className="side__link">
                         <div className="side__logo">
                             <img src={logo} alt="Logo" />
                             BookFinder
@@ -84,12 +81,12 @@ const Side = () => {
             </aside>
 
             <Main 
-                book = {currentBooks} 
-                loading = {loading}
-                booksItemsPage = {booksItemsPage}
-                totalBook = {bookData.length}
-                paginate = {paginate}
-             />
+              book = {currentBooks} 
+              loading = {loading}
+              booksItemsPage = {booksItemsPage}
+              totalBook = {bookData.length}
+              paginate = {paginate}
+            />
         </div>
     );
 }
