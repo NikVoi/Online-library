@@ -1,16 +1,28 @@
 import React from 'react'
-import List from './list/list';
 import './style.scss'
+import Item from './item/item';
+import Header from '../header/header'
+import Pagination from './pagination/Pagination';
 
 
-
-const Main = (props) => {
+const Main = ({book, loading, booksItemsPage, totalBook, paginate}) => {
     return ( 
-        <main className='main'>
-            <div className="main__title">LOGO Playlists</div>
+        <div className='wrapper__body'>
+            <Header />
 
-            <List book = {props.book}/>
-        </main>
+            <main className='main'>
+                <div className="main__title">All Playlists</div>
+
+                <div className="main__wrapper">
+                    <Item book = {book} loading = {loading}/>
+                </div>
+
+                <Pagination booksItemsPage = {booksItemsPage} totalBook = {totalBook} paginate= {paginate}/>
+                
+            </main>
+
+        </div>
+
      );
 }
  
