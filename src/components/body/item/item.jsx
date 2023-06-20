@@ -1,12 +1,9 @@
 import React from 'react'
 import './style.scss';
 
-import { Link} from 'react-router-dom';
-import CardBook from '../../CardBook/CardBook'
+import {Link} from 'react-router-dom';
 
-const Item = ({book, loading}) => {
-    console.log(book)
-
+const Item = ({book, loading, onItemClick }) => {
     if (loading) {
         return (
             <h2>Lodaing...</h2>
@@ -19,19 +16,19 @@ const Item = ({book, loading}) => {
                         let thumbnail = item.volumeInfo.imageLinks &&  item.volumeInfo.imageLinks.smallThumbnail
                         if (thumbnail != undefined){
                             return (
-                                <div className='item' key={item.id}>
-                                <Link to={'/'} className="item__link">
-                                    <div className="item__img">
-                                        <img src={thumbnail} alt="book img" />
-                                    </div>
-                                    <div className="item__name">
-                                       {item.volumeInfo.authors} 
-                                    </div>
-                                    <div className="item__descr">
-                                    </div>
-                                    <div className="item__writer">
-                                        {/* {item.volumeInfo.} */}
-                                    </div>
+                                <div className='item' key={item.id} onClick={() => onItemClick(item)}>
+                                    <Link to='/About' className="item__link" >
+                                        <div className="item__img">
+                                            <img src={thumbnail} alt="book img" />
+                                        </div>
+                                        <div className="item__name">
+                                            {item.volumeInfo.authors} 
+                                        </div>
+                                        <div className="item__descr">
+                                        </div>
+                                        <div className="item__writer">
+                                            {/* {item.volumeInfo.} */}
+                                        </div>
                                     </Link>
                                 </div>
                             )
