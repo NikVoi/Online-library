@@ -1,5 +1,7 @@
 import React from 'react'
 import './style.scss'
+import { Link } from 'react-router-dom'
+
 
 const Pagination = ({booksItemsPage, totalBook, paginate}) => {
     const pageNumbers = []
@@ -8,15 +10,14 @@ const Pagination = ({booksItemsPage, totalBook, paginate}) => {
         pageNumbers.push(i)
     }
 
-
     return ( 
         <div className="pagination">
             {
                 pageNumbers.map(number => (
                     <div className="pagination__item" key={number}>
-                        <a href="!#" className='pagination__item-link' onClick={() => paginate(number)}>
+                        <Link to="/" className='pagination__item-link' onClick={() => paginate(number)}>
                             {number}
-                        </a>
+                        </Link>
                     </div>
                 ))
             }

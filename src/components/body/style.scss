@@ -21,13 +21,6 @@ main {
     width: 100%;
 }
 
-.List {
-    display: flex;
-    justify-content: space-between;
-
-    flex-wrap: wrap;
-}
-
 @media screen and (max-width: 1024px){
     .main__title {
         font-size: 1.5rem;
@@ -56,7 +49,7 @@ main {
     
     .List {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
     
         flex-wrap: wrap;
     }

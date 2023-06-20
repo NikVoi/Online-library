@@ -1,4 +1,11 @@
 .List {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+    // display: grid;
+    // grid-template-rows: 1fr 1fr 1fr 1fr;
+    // grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-left: .5rem;
 }
 
@@ -9,6 +16,7 @@
 
     display: inline-block;
     margin: .5rem;
+    
     
     border-radius: 0.5rem;
 
@@ -45,7 +53,7 @@
 .item__descr {
     font-size: 1rem;
 
-    height: 2rem;
+    height: 1rem;
     overflow: hidden;
 
     margin-bottom: .8rem;

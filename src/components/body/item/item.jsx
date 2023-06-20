@@ -4,6 +4,7 @@ import './style.scss';
 import {Link} from 'react-router-dom';
 
 const Item = ({book, loading, onItemClick }) => {
+
     if (loading) {
         return (
             <h2>Lodaing...</h2>
@@ -22,12 +23,14 @@ const Item = ({book, loading, onItemClick }) => {
                                             <img src={thumbnail} alt="book img" />
                                         </div>
                                         <div className="item__name">
-                                            {item.volumeInfo.authors} 
+                                            {item.volumeInfo.title} 
                                         </div>
                                         <div className="item__descr">
+                                            {item.volumeInfo.categories}
                                         </div>
                                         <div className="item__writer">
-                                            {/* {item.volumeInfo.} */}
+                                            {item.volumeInfo.authors}
+                                            {/* .join(' ') */}
                                         </div>
                                     </Link>
                                 </div>

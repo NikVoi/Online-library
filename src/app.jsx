@@ -29,7 +29,7 @@ const app = () => {
 
     const [loading, setLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
-    const [booksItemsPage] = useState(12)
+    const [booksItemsPage] = useState(15)
 
     // Hook for get info with API
     useEffect(()=>{

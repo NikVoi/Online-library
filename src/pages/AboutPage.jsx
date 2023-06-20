@@ -1,12 +1,12 @@
 import CardBook from "../components/CardBook/CardBook";
 import Header from "../components/header/header";
-import SideSecond from "../components/SideSecond/SideSecond"
+import Side from "../components/Side/Side"
 
 
 const AboutPage = ({selectedItem, activeSideMenu, setMenuActive}) => {
     return ( 
         <>
-            <SideSecond activeSideMenu = {activeSideMenu}/>
+            <Side activeSideMenu = {activeSideMenu}/>
 
             <Header activeSideMenu= {activeSideMenu} setMenuActive = {setMenuActive}/>
 
