@@ -1,6 +1,8 @@
 import React from 'react'
 import './style.scss';
 
+import { Link} from 'react-router-dom';
+import CardBook from '../../CardBook/CardBook'
 
 const Item = ({book, loading}) => {
     console.log(book)
@@ -18,7 +20,7 @@ const Item = ({book, loading}) => {
                         if (thumbnail != undefined){
                             return (
                                 <div className='item' key={item.id}>
-                                <a href='#' className="item__link">
+                                <Link to={'/'} className="item__link">
                                     <div className="item__img">
                                         <img src={thumbnail} alt="book img" />
                                     </div>
@@ -30,7 +32,7 @@ const Item = ({book, loading}) => {
                                     <div className="item__writer">
                                         {/* {item.volumeInfo.} */}
                                     </div>
-                                    </a>
+                                    </Link>
                                 </div>
                             )
                         }
