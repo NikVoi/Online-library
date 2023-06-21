@@ -3,10 +3,10 @@ import Header from "../components/header/header";
 import Side from "../components/Side/Side"
 
 
-const AboutPage = ({selectedItem, activeSideMenu, setMenuActive}) => {
+const AboutPage = ({selectedItem, activeSideMenu, setMenuActive, bookData, handleSortChange}) => {
     return ( 
         <>
-            <Side activeSideMenu = {activeSideMenu}/>
+            <Side activeSideMenu = {activeSideMenu} bookData = {bookData} onSortChange = {handleSortChange}/>
 
             <Header activeSideMenu= {activeSideMenu} setMenuActive = {setMenuActive}/>
 

@@ -62,11 +62,18 @@ const app = () => {
     const [selectedItem, setSelectedItem] = useState(null);
 
 
+    const handleSortChange = (sortedBooks) => {
+        sortedBooks.forEach(element => {
+            console.log(element.volumeInfo.publishedDate)
+        });
+        console.log('Отсортированные книги:');
+      };
+
     return ( 
         <Routes>
             <Route path="/" element= { 
                 <div className={setActiveMenu}>
-                    <Side activeSideMenu = {activeSideMenu} />
+                    <Side activeSideMenu = {activeSideMenu}  bookData = {bookData} onSortChange = {handleSortChange}/>
                 
                     <div className='wrapper__body'>
                 
@@ -94,6 +101,8 @@ const app = () => {
                             selectedItem = {selectedItem} 
                             activeSideMenu = {activeSideMenu} 
                             setMenuActive = {setMenuActive}
+                            bookData = {bookData} 
+                            onSortChange = {handleSortChange}
                         />
                     }
             />  

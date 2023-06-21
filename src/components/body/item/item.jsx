@@ -4,10 +4,18 @@ import './style.scss';
 import {Link} from 'react-router-dom';
 
 const Item = ({book, loading, onItemClick }) => {
-
     if (loading) {
         return (
-            <h2>Lodaing...</h2>
+            <div className="loader">
+                <div className="book">
+                    <div className="book__pg-shadow"></div>
+                    <div className="book__pg"></div>
+                    <div className="book__pg book__pg--2"></div>
+                    <div className="book__pg book__pg--3"></div>
+                    <div className="book__pg book__pg--4"></div>
+                    <div className="book__pg book__pg--5"></div>
+                </div>
+            </div>
         )
     } else {
         return (
@@ -37,32 +45,7 @@ const Item = ({book, loading, onItemClick }) => {
                             )
                         }
                     })
-                    
-    
-    
-                    // props.book.map((item) => {
-                    //     let thumbnail = item.volumeInfo.imageLinks &&  item.volumeInfo.imageLinks.smallThumbnail
-                    //     if (thumbnail != undefined){
-                    //         return (
-                    //             <div className='item'>
-                    //                 <a href='#' className="item__link">
-                    //                     <div className="item__img">
-                    //                         <img src={thumbnail} alt="book img" />
-                    //                     </div>
-                    //                     <div className="item__name">
-                    //                         {item.volumeInfo.authors}
-                    //                     </div>
-                    //                     <div className="item__descr">
-                    //                         {item.volumeInfo.subtitle}
-                    //                     </div>
-                    //                     <div className="item__writer">
-                    //                         {/* {item.volumeInfo.} */}
-                    //                     </div>
-                    //                 </a>
-                    //             </div>
-                    //         )
-                    //     }
-                    // })
+                
                 }
             </div>
          );
