@@ -5,7 +5,7 @@ import './style.scss'
 const searchImg = import.meta.env.VITE_SEARCH_IMG_PATH
 const logo = import.meta.env.VITE_LOGO_PATH;
 
-export const Side = ({activeSideMenu, bookData, onSortChange  }) => {
+export const Side = ({activeSideMenu, bookData, onSortChange, search, setSearch, searchBook}) => {
     
     const setAtiveSideBar = activeSideMenu ? 'side active' : 'side'
 
@@ -32,7 +32,7 @@ export const Side = ({activeSideMenu, bookData, onSortChange  }) => {
     return ( 
         <aside className={setAtiveSideBar}>
             <div className="side__wrapper">
-                <Link to='/' className="side__link">
+                <Link to = '/' className="side__link">
                     <div className="side__logo">
                         <img src={logo} alt="Logo" />
                         BookFinder
@@ -43,12 +43,12 @@ export const Side = ({activeSideMenu, bookData, onSortChange  }) => {
                 
                 <div className="side__search">
                     <input 
-                    type="text" 
-                    name="book" 
-                    className="side__input" 
-                    required autoComplete="off"
-                    // value = {search} onChange = {e => setSearch(e.target.value)} 
-                    // onKeyUp = {searchBook} 
+                        type="text" 
+                        name="book" 
+                        className="side__input" 
+                        required autoComplete="off"
+                        value = {search} onChange = {e => setSearch(e.target.value)} 
+                        onKeyUp = {searchBook} 
                     /> 
                     
                     <button className='button--search'>
@@ -61,6 +61,7 @@ export const Side = ({activeSideMenu, bookData, onSortChange  }) => {
                 <div className="side__select">
                     <select onChange={handleSortChange}>
                         <option value="init">relevance</option>
+                       
                         <option value="date">newest</option>
                     </select>
                 </div>

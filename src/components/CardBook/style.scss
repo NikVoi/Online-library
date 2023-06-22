@@ -13,7 +13,6 @@
 
     padding-top: 2rem;
     padding-left: 2rem;
-    padding-top: 2rem;
 }
 
 .card__right {
@@ -30,7 +29,7 @@
 }
 
 .card__name {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
 
     margin-bottom: 1rem;
@@ -49,12 +48,12 @@
 
 .card__description {
     width: 95%;
+    height: 17rem;
 
+    overflow-y: scroll;
     font-size: 1.2rem;
     text-indent: 1.5em;
 }
-
-    
 
 @media screen and (max-width: 1024px) {
 
@@ -65,7 +64,7 @@
     
         padding-top: 1.4rem;
         padding-left: 1.4rem;
-        padding-bottom: 1.4rem;
+        padding-bottom: 2rem;
     }
     
     .card__right {
@@ -74,7 +73,7 @@
     }
 
     .card__name {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
         font-weight: bold;
     
         margin-bottom: 1rem;
@@ -113,8 +112,6 @@
     .card__left {
         width: 65%;
         
-        overflow: hidden;
-    
         padding-top: 1rem;
         padding-left: 1rem;
         padding-bottom: 1.4rem;
@@ -142,7 +139,6 @@
         width: 95%;
         height: 10rem;
 
-        overflow-y: scroll;
     
         line-height: 1.4rem;
         font-size: .8rem;

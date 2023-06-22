@@ -1,0 +1,21 @@
+.Error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 6rem;
+
+    width: 100%;
+    height: 100vh;
+
+    & h1 {
+        font-size: 4rem;
+        font-weight: bold;
+    }
+
+    & h2 {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+}
+
