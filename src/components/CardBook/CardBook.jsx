@@ -1,14 +1,21 @@
 import React from 'react'
 import './style.scss'
 
+
+
 const CardBook = ({selectedItem}) => {
     let thumbnail = selectedItem.volumeInfo.imageLinks &&  selectedItem.volumeInfo.imageLinks.smallThumbnail
+
+    const isAuthor = selectedItem.volumeInfo.authors
+    let newA = null
+    selectedItem.volumeInfo.authors !== undefined ? newA = isAuthor.join(' ') : isAuthor
+    
     return ( 
         <>
             <div className="card">
                 <div className="card__left">
                     <div className="card__name">{selectedItem.volumeInfo.title}</div>
-                    <div className="card__author">{selectedItem.volumeInfo.authors}</div>
+                    <div className="card__author">{newA}</div>
                     <div className="card__categories">{selectedItem.volumeInfo.categories}</div>
                     <div className="card__description">
                         {selectedItem.volumeInfo.description}

@@ -12,7 +12,12 @@ const Item = ({book, loading, onItemClick}) => {
             <div className='List'> 
                 {
                     book.map((item) => {
-                        let thumbnail = item.volumeInfo.imageLinks &&  item.volumeInfo.imageLinks.smallThumbnail
+                        let thumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail
+                        const isAuthor = item.volumeInfo.authors 
+                        let newA = null
+                        isAuthor !== undefined ? newA = isAuthor.join(' ') : isAuthor
+                        
+
                         if (thumbnail != undefined){
                             return (
                                 <div className='item' key={item.id} onClick={() => onItemClick(item)}>
@@ -27,8 +32,7 @@ const Item = ({book, loading, onItemClick}) => {
                                             {item.volumeInfo.categories}
                                         </div>
                                         <div className="item__writer">
-                                            {item.volumeInfo.authors}
-                                            {/* .join(' ') */}
+                                            {newA}
                                         </div>
                                     </Link>
                                 </div>

@@ -82,7 +82,7 @@ export const Side = ({activeSideMenu, bookData, onSortChange, search, setSearch,
             </div>
 
             <div className="side__footer">
-                © 2022 BookFinder
+                © 2023 BookFinder
             </div>
         </aside>
     );

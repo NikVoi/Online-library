@@ -7,6 +7,7 @@ import Main from './components/body/body'
 import Header from './components/header/header'
 import CardBook from './components/CardBook/CardBook'
 import NotFound from './components/NotFound/NotFound'
+import { func } from 'prop-types'
 
 const apiStart = import.meta.env.VITE_API_PATH_START
 const apiEnd = import.meta.env.VITE_API_PATH_END
@@ -21,11 +22,13 @@ const app = () => {
     const [bookData, setData] = useState([])
     const [search, setSearch] = useState("")
 
-    const searchBook = (event) => {
+    const searchBook = async (event) => {
         if(event.key === "Enter") {
-            axios.get(apiStart + search + apiEnd)
-            .then(res => setData(res.data.items))
-            .catch(err => console.log(err))
+            setLoading(true)
+            fetch(apiStart + search + apiEnd) 
+                .then((res) => res.json())
+                .then((data) => setData(data.items))
+            setLoading(false)
         }
     }
 
@@ -33,12 +36,26 @@ const app = () => {
     useEffect(()=>{
         const getBook = async () => {
             setLoading(true)
-            const res = await axios.get(apiStart + 'JS' + apiEnd)
-            setData(res.data.items)
+            fetch(apiStart + 'JS' + apiEnd) 
+                .then((res) => res.json())
+                .then((data) => setData(data.items))
             setLoading(false)
         }
         getBook()
-    }, [])  
+    }, [])
+
+    // useEffect(()=>{
+    //     const getBook = async () => {
+    //         setLoading(true)
+    //         const res = await axios.get(apiStart + 'JS' + apiEnd)
+    //         setData(res.data.items)
+    //         setLoading(false)
+    //     }
+    //     getBook()
+    // }, [])  
+    
+    
+
 
     // get number pages & current page
     const lastBookIndex = currentPage * booksItemsPage
@@ -60,7 +77,10 @@ const app = () => {
     const [selectedItem, setSelectedItem] = useState(null);
     
     const handleSortChange = (sortedBooks) => {
-        console.log(sortedBooks)
+        sortedBooks.forEach(element => {
+            console.log(element.volumeInfo.publishedDate)
+        });
+        // console.log(sortedBooks)
     };
 
     return ( 
