@@ -1,10 +1,12 @@
-import React from 'react'
+import {React, useContext} from 'react'
 import './style.scss'
+import { ClickContext } from '../../app'
 
+const CardBook = () => {
 
-
-const CardBook = ({selectedItem}) => {
-    let thumbnail = selectedItem.volumeInfo.imageLinks &&  selectedItem.volumeInfo.imageLinks.smallThumbnail
+    const {selectedItem} = useContext(ClickContext)    
+    
+    const thumbnail = selectedItem.volumeInfo.imageLinks &&  selectedItem.volumeInfo.imageLinks.smallThumbnail
 
     const isAuthor = selectedItem.volumeInfo.authors
     let newA = null

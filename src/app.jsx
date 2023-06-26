@@ -1,9 +1,8 @@
-import {React, useState, useEffect} from 'react'
+import {React, useState, useEffect, createContext} from 'react'
 import { Route, Routes} from 'react-router-dom'
-import axios from 'axios'
 
 import Side from './components/Side/Side'
-import Main from './components/body/body'
+import Main from './components/body/Body'
 import Header from './components/header/header'
 import CardBook from './components/CardBook/CardBook'
 import NotFound from './components/NotFound/NotFound'
@@ -11,16 +10,21 @@ import NotFound from './components/NotFound/NotFound'
 const apiStart = import.meta.env.VITE_API_PATH_START
 const apiEnd = import.meta.env.VITE_API_PATH_END
 
-const app = () => {
+export const ClickContext = createContext();
 
+const App = () => {
+    
     const [loading, setLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [booksItemsPage] = useState(15)
+    
+    const [selectedItem, setSelectedItem] = useState(null);
 
     // state & func for search books
     const [bookData, setData] = useState([])
     const [search, setSearch] = useState("")
-
+    
+   
     const searchBook = async (event) => {
         if(event.key === "Enter") {
             setLoading(true)
@@ -43,8 +47,6 @@ const app = () => {
         getBook()
     }, [])
 
-
-
     // get number pages & current page
     const lastBookIndex = currentPage * booksItemsPage
     const firstBookIndex = lastBookIndex - booksItemsPage
@@ -56,57 +58,40 @@ const app = () => {
     // set active side bar on mobile page
     const [activeSideMenu, setMenuActive] = useState(false)
 
-    const setActiveMenu = activeSideMenu ? 'potishion state' : 'potishion'
-
-    const handleItemClick = item => {
-        setSelectedItem(item);
-    };
-    
-    const [selectedItem, setSelectedItem] = useState(null);
-    
-    const handleSortChange = (sortedBooks) => {
-        sortedBooks.forEach(element => {
-            console.log(element.volumeInfo.publishedDate)
-        });
-        // console.log(sortedBooks)
-    };
 
     return ( 
-        <div className={setActiveMenu}>
+        <div className={activeSideMenu ? 'potishion state' : 'potishion'}>
+            <ClickContext.Provider value = { {selectedItem, setSelectedItem, bookData, setData, currentBooks, copy} }>
+                <Side 
+                    activeSideMenu = {activeSideMenu}
+                    search = {search}
+                    setSearch = {setSearch}
+                    searchBook = {searchBook}
+                />
 
-            <Side 
-                activeSideMenu = {activeSideMenu}
-                bookData = {bookData}
-                onSortChange = {handleSortChange}
-                search = {search}
-                setSearch = {setSearch}
-                searchBook = {searchBook}
-            />
+                <Header activeSideMenu= {activeSideMenu} setMenuActive = {setMenuActive}/>
 
-            <Header activeSideMenu= {activeSideMenu} setMenuActive = {setMenuActive}/>
+                <Routes>
+                    <Route path="/" element= { 
+                        <div className='wrapper__body'>
+                            <Main
+                                loading = {loading}
+                                booksItemsPage = {booksItemsPage}
+                                totalBook = {bookData.length}
+                                paginate = {paginate}
+                            />
+                        </div>
+                    }/>
+                        
+                    <Route path = '/About' element = {<CardBook/>}/>  
+                    <Route path = '*' element = {<NotFound/>}/>
 
-            <Routes>
-                <Route path="/" element= { 
-                    <div className='wrapper__body'>
-                        <Main
-                            book = {currentBooks} 
-                            loading = {loading}
-                            booksItemsPage = {booksItemsPage}
-                            totalBook = {bookData.length}
-                            paginate = {paginate}
-                            onItemClick = {handleItemClick}/>
-                    </div>
-                }/>
-                    
-                <Route path = '/About' element = {<CardBook selectedItem = {selectedItem} />}/>  
-                <Route path = '*' element = {<NotFound/>}/>
-
-            </Routes> 
-
+                </Routes> 
+            </ClickContext.Provider>
         </div>
 
     );
 }
 
 
-export default app;
+export default App;

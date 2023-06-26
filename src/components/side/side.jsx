@@ -1,36 +1,41 @@
-import React, {useEffect, useState} from 'react'
+import {React,useContext, useState, useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import './style.scss'
+import { ClickContext } from '../../app';
 
 const searchImg = import.meta.env.VITE_SEARCH_IMG_PATH
 const logo = import.meta.env.VITE_LOGO_PATH;
 
-export const Side = ({activeSideMenu, bookData, onSortChange, search, setSearch, searchBook}) => {
+const func = (a) =>{
+    a.forEach(element => {
+      console.log(element.volumeInfo.publishedDate)  
+    });
+    console.log('sort')
+}
+
+export const Side = ({activeSideMenu, search, setSearch, searchBook}) => {
+
+    const {bookData, setData} = useContext(ClickContext)
     
-    const setAtiveSideBar = activeSideMenu ? 'side active' : 'side'
-
-    const [sortedBooks, setSortedBooks] = useState([...bookData]);
-
-    useEffect(() => {
-        onSortChange(sortedBooks);
-      }, [sortedBooks, onSortChange]);
-
     const handleSortChange = (e) => {
-      const sortByDate = (a, b) => {
-        const dateA = new Date(a.volumeInfo.publishedDate);
-        const dateB = new Date(b.volumeInfo.publishedDate);
-        return dateB - dateA;
-      };
-      if (e.target.value === 'date') {
-        const sorted = [...bookData].sort(sortByDate);
-        setSortedBooks(sorted);
-      } else if (e.target.value === 'init'){
-        setSortedBooks([...bookData]);
-      }
-    };
+        const sortByDate = (a, b) => {
+            const dateA = new Date(a.volumeInfo.publishedDate)
+            const dateB = new Date(b.volumeInfo.publishedDate)
+            return dateB - dateA
+        }
+        
+        if (e.target.value === 'date') {
+            const sortedArray = [...bookData].sort(sortByDate);
+            setData(sortedArray)
+        } else if (e.target.value === 'init'){
+            setData(copy);
+        }
+
+    }
+
     
     return ( 
-        <aside className={setAtiveSideBar}>
+        <aside className={activeSideMenu ? 'side active' : 'side'}>
             <div className="side__wrapper">
                 <Link to = '/' className="side__link">
                     <div className="side__logo">
@@ -39,7 +44,7 @@ export const Side = ({activeSideMenu, bookData, onSortChange, search, setSearch,
                     </div>
                 </Link>
 
-                <label htmlFor="book"><span>What's book  your saerch</span></label>
+                <label htmlFor="book"><span>What's book  your search</span></label>
                 
                 <div className="side__search">
                     <input 
