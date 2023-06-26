@@ -1,5 +1,5 @@
 import {React, useState, useEffect} from 'react'
-import { Route, Routes , redirect} from 'react-router-dom'
+import { Route, Routes} from 'react-router-dom'
 import axios from 'axios'
 
 import Side from './components/Side/Side'
@@ -7,7 +7,6 @@ import Main from './components/body/body'
 import Header from './components/header/header'
 import CardBook from './components/CardBook/CardBook'
 import NotFound from './components/NotFound/NotFound'
-import { func } from 'prop-types'
 
 const apiStart = import.meta.env.VITE_API_PATH_START
 const apiEnd = import.meta.env.VITE_API_PATH_END
@@ -44,17 +43,6 @@ const app = () => {
         getBook()
     }, [])
 
-    // useEffect(()=>{
-    //     const getBook = async () => {
-    //         setLoading(true)
-    //         const res = await axios.get(apiStart + 'JS' + apiEnd)
-    //         setData(res.data.items)
-    //         setLoading(false)
-    //     }
-    //     getBook()
-    // }, [])  
-    
-    
 
 
     // get number pages & current page
