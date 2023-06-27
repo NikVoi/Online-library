@@ -2,10 +2,7 @@
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    
-    // display: grid;
-    // grid-template-rows: 1fr 1fr 1fr 1fr;
-    // grid-template-columns: 1fr 1fr 1fr 1fr;
+
     margin-left: .5rem;
 }
 
@@ -69,6 +66,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+	margin-top: 5rem;
 }
 
 * {

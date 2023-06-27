@@ -37,9 +37,9 @@ export const Side = ({ activeSideMenu, search, setSearch, searchBook }) => {
   };
 
   const handleCategoriesChange = (e) => {
-    const value = e.target.value
+    const value = e.target.value;
     if (e.target.value === "all") {
-      fetch(apiStart + "subject:"  + apiEnd)
+      fetch(apiStart + "subject:" + apiEnd)
         .then((res) => res.json())
         .then((data) => setData(data.items));
     } else {
