@@ -74,6 +74,26 @@
     text-align: right;
 }
 
+
+
+
+@media screen and (min-width: 1500px) {
+    .header__mobile {
+        &::after,
+        &::before {
+            width: 100%;
+            height: 5px;
+    
+            left: 0;
+        }
+    
+        & span {
+            height: 5px;
+        }
+    }
+}
+
+
 @media screen and (max-width: 640px) {
     .header__title {
         font-size: 1.5rem;

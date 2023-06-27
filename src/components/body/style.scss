@@ -25,9 +25,8 @@ main {
 @media screen and (max-width: 1024px){
     .main__title {
         font-size: 1.5rem;
-        font-family: 'SF Pro Display' serif;
         margin-left: 1.1rem ;
-        margin-bottom: 1rem;
+        margin-bottom: .5rem;
     }
     
     main {
@@ -36,7 +35,7 @@ main {
         background-position: top right;
         background-repeat: no-repeat;
     
-        padding-top: 2rem;
+        padding-top: 1rem;
     }
     
     .wrapper__body {
@@ -60,9 +59,7 @@ main {
 @media screen and (max-width: 640px){
     .main__title {
         font-size: 1.5rem;
-        font-family: 'SF Pro Display' serif;
         margin-left: 1.1rem ;
-        margin-bottom: 1rem;
     }
     
     main {
