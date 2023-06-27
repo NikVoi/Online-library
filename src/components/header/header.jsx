@@ -4,18 +4,18 @@ import './style.scss'
 
 const Header = ({setMenuActive, activeSideMenu}) => {
 
-    const [activeMenuButton, setmenuButton] = useState(false)
+    const [activeMenuButton, setMenuButton] = useState(false)
 
     return ( 
         <div className='header'>
             <div className= {activeMenuButton ? 'header__mobile active' : 'header__mobile'} onClick={() => {
                 setMenuActive(!activeSideMenu)
-                setmenuButton(!activeMenuButton)
+                setMenuButton(!activeMenuButton)
             }}>
                 <span></span>
             </div>
 
-            <div className="header__titel">
+            <div className="header__title">
                 Search for books
             </div>     
         </div>

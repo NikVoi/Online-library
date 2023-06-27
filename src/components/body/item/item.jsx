@@ -11,7 +11,6 @@ const Item = ({ loading }) => {
   const handleItemClick = (item) => {
     setSelectedItem(item);
   };
-
   if (loading) {
     return <Loader />;
   } else {

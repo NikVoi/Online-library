@@ -1,33 +1,51 @@
-import { React, useContext, useState, useEffect } from "react";
+import { React, useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import "./style.scss";
 import { ClickContext } from "../../app";
+import Select from "./Select/Select";
+import "./style.scss";
 
 const searchImg = import.meta.env.VITE_SEARCH_IMG_PATH;
 const logo = import.meta.env.VITE_LOGO_PATH;
+const apiStart = import.meta.env.VITE_API_PATH_START;
+const apiEnd = import.meta.env.VITE_API_PATH_END;
 
-const func = (a) => {
-  a.forEach((element) => {
-    console.log(element.volumeInfo.publishedDate);
-  });
-  console.log("sort");
-};
+const selectOptionsSeconde = [
+  { value: "all", label: "all" },
+  { value: "art", label: "art" },
+  { value: "biography", label: "biography" },
+  { value: "computers", label: "computers" },
+  { value: "history", label: "history" },
+  { value: "medical", label: "medical" },
+  { value: "poetry", label: "poetry" },
+];
 
 export const Side = ({ activeSideMenu, search, setSearch, searchBook }) => {
   const { bookData, setData, bookDataGlobal } = useContext(ClickContext);
 
-  const handleSortChange = (e) => {
+  const handleSortChang = (e) => {
     const sortByDate = (a, b) => {
       const dateA = new Date(a.volumeInfo.publishedDate);
       const dateB = new Date(b.volumeInfo.publishedDate);
       return dateB - dateA;
     };
-
     if (e.target.value === "date") {
       const sortedArray = [...bookData].sort(sortByDate);
       setData(sortedArray);
     } else if (e.target.value === "init") {
       setData([...bookDataGlobal]);
+    }
+  };
+
+  const handleCategoriesChange = (e) => {
+    const value = e.target.value
+    if (e.target.value === "all") {
+      fetch(apiStart + "subject:"  + apiEnd)
+        .then((res) => res.json())
+        .then((data) => setData(data.items));
+    } else {
+      fetch(apiStart + "subject:" + value + apiEnd)
+        .then((res) => res.json())
+        .then((data) => setData(data.items));
     }
   };
 
@@ -63,11 +81,11 @@ export const Side = ({ activeSideMenu, search, setSearch, searchBook }) => {
         </div>
 
         <label htmlFor="book" className="SelectText">
-          Select sort<span></span>
+          <span>Select sort</span>
         </label>
 
         <div className="side__select">
-          <select onChange={handleSortChange}>
+          <select onChange={handleSortChang}>
             <option value="init">relevance</option>
 
             <option value="date">newest</option>
@@ -75,19 +93,14 @@ export const Side = ({ activeSideMenu, search, setSearch, searchBook }) => {
         </div>
 
         <label htmlFor="book" className="SelectText">
-          Select categories<span></span>
+          <span>Select categories</span>
         </label>
 
         <div className="side__select">
-          <select>
-            <option value="someOption">all</option>
-            <option value="otherOption">art</option>
-            <option value="otherOption">biography</option>
-            <option value="otherOption">computers</option>
-            <option value="otherOption">history</option>
-            <option value="otherOption">medical</option>
-            <option value="otherOption">poetry</option>
-          </select>
+          <Select
+            onChange={handleCategoriesChange}
+            options={selectOptionsSeconde}
+          />
         </div>
       </div>
 
