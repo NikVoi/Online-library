@@ -1,65 +1,101 @@
 .card {
     display: flex;
 
+    height: 22rem;
+
     background-color: #4d4d4d;
-    margin: 2rem;
+    margin: 1rem 2rem;
     border-radius: 3rem;
 }
 
 .card__left {
-    width: 70%;
-    
     overflow: hidden;
-
+    
     padding-top: 2rem;
     padding-left: 2rem;
+    padding-bottom: 2rem;
 }
 
 .card__right {
-    width: 30%;
-    height: 35rem;
+    padding-right: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     & img {
-        width: 100%;
-        height: 100%;
-
-        border-top-right-radius: 3rem;
-        border-bottom-right-radius: 3rem;
+        width: 10rem;
+        height: 15rem;
     }
 }
 
 .card__name {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: bold;
 
     margin-bottom: 1rem;
 }
 
 .card__author {
-    font-size: 2rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
 }
 
 .card__categories {
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-decoration: underline;
     margin-bottom: 1rem;
 }
 
 .card__description {
     width: 95%;
-    height: 17rem;
-
+    height: 12rem;
     overflow-y: scroll;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-indent: 1.5em;
 }
 
+
+@media screen and (min-width: 1500px) {
+    .card {
+        height: 30rem;
+        margin: 2rem 2rem;
+        border-radius: 3rem;
+    }
+    
+    .card__right {
+        & img {
+            width: 15rem;
+            height: 20rem;
+        }
+    }
+    
+    .card__name {font-size: 2rem;}
+    
+    .card__author {font-size: 1.5rem;}
+    
+    .card__categories {font-size: 1.4rem;}
+    
+    .card__description {
+        height: 16rem;
+        overflow-y: scroll;
+        font-size: 1rem;
+        text-indent: 1.5em;
+    }
+
+}
 @media screen and (max-width: 1024px) {
+    .card {
+        display: flex;
+    
+        height: 24rem;
+    
+        background-color: #4d4d4d;
+        margin: 1rem 2rem;
+        border-radius: 3rem;
+    
+    }
 
     .card__left {
-        width: 65%;
-        
         overflow: hidden;
     
         padding-top: 1.4rem;
@@ -67,68 +103,58 @@
         padding-bottom: 2rem;
     }
     
-    .card__right {
-        width: 35%;
-        height: inherit;
-    }
-
     .card__name {
-        font-size: 1.5rem;
-        font-weight: bold;
+        font-size: 1.2rem;
     
-        margin-bottom: 1rem;
+        margin-bottom: .8rem;
     }
     
     .card__author {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
+        font-size: 1rem;
+        margin-bottom: .8rem;
     }
     
     .card__categories {
         font-size: 1rem;
-        text-decoration: underline;
-        margin-bottom: 1rem;
+        margin-bottom: .8rem;
     }
     
     .card__description {
         width: 95%;
-        height: 20rem;
-
-        overflow-y: scroll;
-    
-        line-height: 1.4rem;
-        font-size: 1rem;
-        text-indent: 1.5em;
+        height: 15rem;
     }
 }
 
 
 @media screen and (max-width: 640px) {
     .card {
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+
         margin: 1rem;
         border-radius: 2rem;
+        height: inherit;
+
+        padding-bottom: 1.1rem;
     }
 
     .card__left {
-        width: 65%;
-        
-        padding-top: 1rem;
-        padding-left: 1rem;
+        padding-top: 1.5rem;
+        padding-left: 1.2rem;
         padding-bottom: 1.4rem;
     }
     
     .card__right {
-        width: 35%;
-        height: inherit;
-
-        & img {
-            border-top-right-radius: 2rem;
-            border-bottom-right-radius: 2rem;
+        padding-top: 1rem;
+        padding-right: 0;
+        img {
+            width: 8rem;
+            height: 10rem;
         }
     }
 
     .card__name {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     
     .card__author {font-size: 1rem;}
@@ -136,11 +162,9 @@
     .card__categories {font-size: .8rem;}
     
     .card__description {
-        width: 95%;
-        height: 10rem;
+        height: 25rem;
 
-    
-        line-height: 1.4rem;
+        line-height: 1.1rem;
         font-size: .8rem;
         text-indent: .5rem;
     }

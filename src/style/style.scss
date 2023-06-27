@@ -103,3 +103,21 @@ body {
 	display: none;
 }
 
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+  
+::-webkit-scrollbar-track {
+	background: #4d4d4d; 
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: purple; 
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+}
