@@ -2,11 +2,11 @@ import { React, useContext } from "react";
 import "./style.scss";
 
 import { Link } from "react-router-dom";
-import Loader from "./Loader/Loader";
-import { ClickContext } from "../../../app";
+import Loader from "../Loader/Loader";
+import { ClickContext } from "../../App";
 
-const Item = ({ loading }) => {
-  const { setSelectedItem, currentBooks } = useContext(ClickContext);
+const Item = () => {
+  const { setSelectedItem, currentBooks, loading } = useContext(ClickContext);
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -36,7 +36,7 @@ const Item = ({ loading }) => {
                     <img src={thumbnail} alt="book img" />
                   </div>
                   <div className="item__name">{item.volumeInfo.title}</div>
-                  <div className="item__descr">
+                  <div className="item__description">
                     {item.volumeInfo.categories}
                   </div>
                   <div className="item__writer">{newA}</div>
