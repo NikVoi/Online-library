@@ -1,9 +1,10 @@
 import { React, useContext } from "react";
-import "./style.scss";
-
 import { Link } from "react-router-dom";
-import Loader from "../Loader/Loader";
-import { ClickContext } from "../../App";
+
+import { ClickContext } from "@/app";
+import Loader from "@components/Loader/Loader";
+
+import "./style.scss";
 
 const Item = () => {
   const { setSelectedItem, currentBooks, loading } = useContext(ClickContext);

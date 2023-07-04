@@ -1,9 +1,9 @@
 import React from "react";
+import Pagination from "@components/pagination/Pagination";
+import Item from '@components/Item/Item';
 import "./style.scss";
-import Pagination from "../pagination/Pagination";
-import Item from "../item/item";
 
-const Main = ({ booksItemsPage, totalBook, paginate }) => {
+const Main = ({ paginate }) => {
   return (
     <main className="main">
       <div className="main__title">All Playlists</div>
@@ -13,8 +13,6 @@ const Main = ({ booksItemsPage, totalBook, paginate }) => {
       </div>
 
       <Pagination
-        booksItemsPage={booksItemsPage}
-        totalBook={totalBook}
         paginate={paginate}
       />
     </main>

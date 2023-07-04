@@ -19,6 +19,8 @@
     position: relative;
     display: block;
 
+    z-index: 10000;
+
     &::after,
     &::before {
         transition: .5s;

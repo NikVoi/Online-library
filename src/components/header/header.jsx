@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import sideContest from "@/contexts/sideContext";
 import "./style.scss";
 
-const Header = ({ setMenuActive, activeSideMenu }) => {
-  const [activeMenuButton, setMenuButton] = useState(false);
+const Header = ({ setMenuActive, activeSideMenu, activeMenuButton, setMenuButton }) => {
+  const { mobileNavRef } = useContext(sideContest);
 
   const doActive = () => {
     setMenuActive(!activeSideMenu);
@@ -11,7 +12,7 @@ const Header = ({ setMenuActive, activeSideMenu }) => {
 
   return (
     <div className="header">
-      <div
+      <div ref={mobileNavRef}
         className={
           activeMenuButton ? "header__mobile active" : "header__mobile"
         }

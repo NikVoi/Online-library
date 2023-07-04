@@ -1,7 +1,9 @@
-import { React, useContext, useState } from "react";
+import { React, useContext } from "react";
 import { Link } from "react-router-dom";
-import { ClickContext } from "../../app";
-import Select from "./Select/Select";
+
+import { ClickContext } from "@/app";
+import Select from "@components/Select/Select";
+import sideContest from "@/contexts/sideContext";
 import "./style.scss";
 
 const searchImg = import.meta.env.VITE_SEARCH_IMG_PATH;
@@ -21,6 +23,7 @@ const selectOptionsSeconde = [
 
 export const Side = ({ activeSideMenu, search, setSearch, searchBook }) => {
   const { bookData, setData, bookDataGlobal } = useContext(ClickContext);
+  const { MenuRef, SideBGRef, deleteClass } = useContext(sideContest);
 
   const handleSortChang = (e) => {
     const sortByDate = (a, b) => {
@@ -50,62 +53,68 @@ export const Side = ({ activeSideMenu, search, setSearch, searchBook }) => {
   };
 
   return (
-    <aside className={activeSideMenu ? "side active" : "side"}>
-      <div className="side__wrapper">
-        <Link to="/" className="side__link">
-          <div className="side__logo">
-            <img src={logo} alt="Logo" />
-            BookFinder
+    <div className="side__block">
+      <aside ref={MenuRef} className={activeSideMenu ? "side active" : "side"}>
+         
+        <div className="side__wrapper">
+          <Link to="/" className="side__link" onClick={deleteClass}>
+            <div className="side__logo">
+              <img src={logo} alt="Logo" />
+              BookFinder
+            </div>
+          </Link>
+
+          <label htmlFor="book">
+            <span>What's book your search</span>
+          </label>
+
+          <div className="side__search">
+            <input
+              type="text"
+              name="book"
+              className="side__input"
+              required
+              autoComplete="off"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              onKeyUp={searchBook}
+            />
+
+            <button className="button--search">
+              <img src={searchImg} alt="search button" />
+            </button>
           </div>
-        </Link>
 
-        <label htmlFor="book">
-          <span>What's book your search</span>
-        </label>
+          <label htmlFor="book" className="SelectText">
+            <span>Select sort</span>
+          </label>
 
-        <div className="side__search">
-          <input
-            type="text"
-            name="book"
-            className="side__input"
-            required
-            autoComplete="off"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            onKeyUp={searchBook}
-          />
+          <div className="side__select">
+            <select onChange={handleSortChang}>
+              <option value="init">relevance</option>
 
-          <button className="button--search">
-            <img src={searchImg} alt="search button" />
-          </button>
+              <option value="date">newest</option>
+            </select>
+          </div>
+
+          <label htmlFor="book" className="SelectText">
+            <span>Select categories</span>
+          </label>
+
+          <div className="side__select">
+            <Select
+              onChange={handleCategoriesChange}
+              options={selectOptionsSeconde}
+            />
+          </div>
         </div>
 
-        <label htmlFor="book" className="SelectText">
-          <span>Select sort</span>
-        </label>
+        <div className="side__footer">© 2023 BookFinder</div>
+      </aside>
 
-        <div className="side__select">
-          <select onChange={handleSortChang}>
-            <option value="init">relevance</option>
+      <div ref={SideBGRef} className={activeSideMenu ? "side__BG active" : "side__BG"} onClick={deleteClass}></div>
+    </div>
 
-            <option value="date">newest</option>
-          </select>
-        </div>
-
-        <label htmlFor="book" className="SelectText">
-          <span>Select categories</span>
-        </label>
-
-        <div className="side__select">
-          <Select
-            onChange={handleCategoriesChange}
-            options={selectOptionsSeconde}
-          />
-        </div>
-      </div>
-
-      <div className="side__footer">© 2023 BookFinder</div>
-    </aside>
   );
 };
 

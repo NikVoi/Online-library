@@ -1,6 +1,7 @@
 import { React, useContext } from "react";
 import { Link } from "react-router-dom";
-import { ClickContext } from "../../app";
+import { ClickContext } from "@/app";
+import { booksItemsPage} from "@constants/constants"
 import "./style.scss";
 
 const scrollToTop = () => {
@@ -10,14 +11,14 @@ const scrollToTop = () => {
   });
 };
 
-const Pagination = ({ booksItemsPage, totalBook, paginate }) => {
+const Pagination = ({paginate}) => {
+  const { loading, bookData } = useContext(ClickContext);
+  
   const pageNumbers = Array.from(
-    { length: Math.ceil(totalBook / booksItemsPage) },
+    { length: Math.ceil(bookData.length / booksItemsPage) },
     (_, i) => i + 1
   );
-
-  const { loading } = useContext(ClickContext);
-
+    
   if (!loading) {
     return (
       <div className="pagination">

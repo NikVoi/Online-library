@@ -1,6 +1,6 @@
 import { React, useContext } from "react";
+import { ClickContext } from "@/app";
 import "./style.scss";
-import { ClickContext } from "../../app";
 
 const CardBook = () => {
   const { selectedItem } = useContext(ClickContext);
