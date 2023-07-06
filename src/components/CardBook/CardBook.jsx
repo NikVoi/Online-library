@@ -1,5 +1,5 @@
 import { React, useContext } from "react";
-import { ClickContext } from "@/app";
+import ClickContext from "@contexts/ClickContext";
 import "./style.scss";
 
 const CardBook = () => {

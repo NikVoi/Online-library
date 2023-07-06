@@ -1,6 +1,6 @@
 import { React, useContext } from "react";
 import { Link } from "react-router-dom";
-import { ClickContext } from "@/app";
+import ClickContext from "@contexts/ClickContext";
 import { booksItemsPage} from "@constants/constants"
 import "./style.scss";
 

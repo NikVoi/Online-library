@@ -1,5 +1,5 @@
 import { createContext } from 'react';
 
-const sideContest = createContext();
+const SideContest = createContext();
 
-export default sideContest;
+export default SideContest;

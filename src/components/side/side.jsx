@@ -1,9 +1,11 @@
 import { React, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { ClickContext } from "@/app";
+import ClickContext from "@contexts/ClickContext";
 import Select from "@components/Select/Select";
 import sideContest from "@/contexts/sideContext";
+import { mainPage } from "@constants/constants";
+import { selectOptionsSeconde } from "@constants/selectionsObj";
 import "./style.scss";
 
 const searchImg = import.meta.env.VITE_SEARCH_IMG_PATH;
@@ -11,19 +13,9 @@ const logo = import.meta.env.VITE_LOGO_PATH;
 const apiStart = import.meta.env.VITE_API_PATH_START;
 const apiEnd = import.meta.env.VITE_API_PATH_END;
 
-const selectOptionsSeconde = [
-  { value: "all", label: "all" },
-  { value: "art", label: "art" },
-  { value: "biography", label: "biography" },
-  { value: "computers", label: "computers" },
-  { value: "history", label: "history" },
-  { value: "medical", label: "medical" },
-  { value: "poetry", label: "poetry" },
-];
-
 export const Side = ({ activeSideMenu, search, setSearch, searchBook }) => {
   const { bookData, setData, bookDataGlobal } = useContext(ClickContext);
-  const { MenuRef, SideBGRef, deleteClass } = useContext(sideContest);
+  const { MenuRef, SideBGRef, deleteClass, MenuClose } = useContext(sideContest);
 
   const handleSortChang = (e) => {
     const sortByDate = (a, b) => {
@@ -54,10 +46,9 @@ export const Side = ({ activeSideMenu, search, setSearch, searchBook }) => {
 
   return (
     <div className="side__block">
-      <aside ref={MenuRef} className={activeSideMenu ? "side active" : "side"}>
-         
+      <aside ref={MenuClose} className={activeSideMenu ? "side active" : "side"}>
         <div className="side__wrapper">
-          <Link to="/" className="side__link" onClick={deleteClass}>
+          <Link to={mainPage} className="side__link" onClick={deleteClass}>
             <div className="side__logo">
               <img src={logo} alt="Logo" />
               BookFinder
@@ -112,9 +103,12 @@ export const Side = ({ activeSideMenu, search, setSearch, searchBook }) => {
         <div className="side__footer">© 2023 BookFinder</div>
       </aside>
 
-      <div ref={SideBGRef} className={activeSideMenu ? "side__BG active" : "side__BG"} onClick={deleteClass}></div>
+      <div
+        ref={MenuClose}
+        className={activeSideMenu ? "side__BG active" : "side__BG"}
+        onClick={deleteClass}
+      ></div>
     </div>
-
   );
 };
 
