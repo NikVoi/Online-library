@@ -1,12 +1,12 @@
-import { React, useContext } from "react";
-import { Link } from "react-router-dom";
+import { React, useContext } from 'react';
+import { Link } from 'react-router-dom';
 
-import ClickContext from "@contexts/ClickContext";
-import Select from "@components/Select/Select";
-import sideContest from "@/contexts/sideContext";
-import { mainPage } from "@constants/constants";
-import { selectOptionsSeconde } from "@constants/selectionsObj";
-import "./style.scss";
+import ClickContext from '@contexts/ClickContext';
+import Select from '@components/Select/Select';
+import sideContest from '@/contexts/sideContext';
+import { selectOptionsSeconde } from '@constants/selectionsObj';
+import { routes } from "@constants/constants";
+import './style.scss';
 
 const searchImg = import.meta.env.VITE_SEARCH_IMG_PATH;
 const logo = import.meta.env.VITE_LOGO_PATH;
@@ -15,7 +15,7 @@ const apiEnd = import.meta.env.VITE_API_PATH_END;
 
 export const Side = ({ activeSideMenu, search, setSearch, searchBook }) => {
   const { bookData, setData, bookDataGlobal } = useContext(ClickContext);
-  const { MenuRef, SideBGRef, deleteClass, MenuClose } = useContext(sideContest);
+  const { deleteClass, MenuClose } = useContext(sideContest);
 
   const handleSortChang = (e) => {
     const sortByDate = (a, b) => {
@@ -23,76 +23,76 @@ export const Side = ({ activeSideMenu, search, setSearch, searchBook }) => {
       const dateB = new Date(b.volumeInfo.publishedDate);
       return dateB - dateA;
     };
-    if (e.target.value === "date") {
+    if (e.target.value === 'date') {
       const sortedArray = [...bookData].sort(sortByDate);
       setData(sortedArray);
-    } else if (e.target.value === "init") {
+    } else if (e.target.value === 'init') {
       setData([...bookDataGlobal]);
     }
   };
 
   const handleCategoriesChange = (e) => {
     const value = e.target.value;
-    if (e.target.value === "all") {
-      fetch(apiStart + "subject:" + apiEnd)
+    if (e.target.value === 'all') {
+      fetch(apiStart + 'subject:' + apiEnd)
         .then((res) => res.json())
         .then((data) => setData(data.items));
     } else {
-      fetch(apiStart + "subject:" + value + apiEnd)
+      fetch(apiStart + 'subject:' + value + apiEnd)
         .then((res) => res.json())
         .then((data) => setData(data.items));
     }
   };
 
   return (
-    <div className="side__block">
-      <aside ref={MenuClose} className={activeSideMenu ? "side active" : "side"}>
-        <div className="side__wrapper">
-          <Link to={mainPage} className="side__link" onClick={deleteClass}>
-            <div className="side__logo">
-              <img src={logo} alt="Logo" />
+    <div className='side__block'>
+      <aside ref={MenuClose} className={activeSideMenu ? 'side active' : 'side'}>
+        <div className='side__wrapper'>
+          <Link to={routes.mainPage} className='side__link' onClick={deleteClass}>
+            <div className='side__logo'>
+              <img src={logo} alt='Logo' />
               BookFinder
             </div>
           </Link>
 
-          <label htmlFor="book">
+          <label htmlFor='book'>
             <span>What's book your search</span>
           </label>
 
-          <div className="side__search">
+          <div className='side__search'>
             <input
-              type="text"
-              name="book"
-              className="side__input"
+              type='text'
+              name='book'
+              className='side__input'
               required
-              autoComplete="off"
+              autoComplete='off'
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               onKeyUp={searchBook}
             />
 
-            <button className="button--search">
-              <img src={searchImg} alt="search button" />
+            <button className='button--search'>
+              <img src={searchImg} alt='search button' />
             </button>
           </div>
 
-          <label htmlFor="book" className="SelectText">
+          <label htmlFor='book' className='SelectText'>
             <span>Select sort</span>
           </label>
 
-          <div className="side__select">
+          <div className='side__select'>
             <select onChange={handleSortChang}>
-              <option value="init">relevance</option>
+              <option value='init'>relevance</option>
 
-              <option value="date">newest</option>
+              <option value='date'>newest</option>
             </select>
           </div>
 
-          <label htmlFor="book" className="SelectText">
+          <label htmlFor='book' className='SelectText'>
             <span>Select categories</span>
           </label>
 
-          <div className="side__select">
+          <div className='side__select'>
             <Select
               onChange={handleCategoriesChange}
               options={selectOptionsSeconde}
@@ -100,12 +100,12 @@ export const Side = ({ activeSideMenu, search, setSearch, searchBook }) => {
           </div>
         </div>
 
-        <div className="side__footer">© 2023 BookFinder</div>
+        <div className='side__footer'>© 2023 BookFinder</div>
       </aside>
 
       <div
         ref={MenuClose}
-        className={activeSideMenu ? "side__BG active" : "side__BG"}
+        className={activeSideMenu ? 'side__BG active' : 'side__BG'}
         onClick={deleteClass}
       ></div>
     </div>

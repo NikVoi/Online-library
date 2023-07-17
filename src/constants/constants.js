@@ -1,6 +1,9 @@
-export const mainPage = "/"
-export const about = "/About"
-export const allLink = "*"
+export const routes = {
+    mainPage: '/',
+    about: '/About',
+    allLink: '*'
+  };
+
 export const booksItemsPage = 15;
 
 

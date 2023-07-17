@@ -5,14 +5,11 @@ import Loader from "@components/Loader/Loader";
 
 import "./style.scss";
 import ClickContext from "@/contexts/ClickContext";
-import { about } from "@constants/constants";
+import { routes } from "@constants/constants";
 
 const Item = () => {
-  const { setSelectedItem, currentBooks, loading } = useContext(ClickContext);
-
-  const handleItemClick = (item) => {
-    setSelectedItem(item);
-  };
+  const { setSelectedItem, currentBooks, loading, idBook } = useContext(ClickContext);
+  
   if (loading) {
     return <Loader />;
   } else {
@@ -25,15 +22,15 @@ const Item = () => {
           const isAuthor = item.volumeInfo.authors;
           let newA = null;
           isAuthor !== undefined ? (newA = isAuthor.join(" ")) : isAuthor;
-
+          
           if (thumbnail != undefined) {
             return (
               <div
                 className="item"
                 key={item.id}
-                onClick={() => handleItemClick(item)}
+                onClick={() => setSelectedItem(item)}
               >
-                <Link to={about} className="item__link">
+                <Link to={routes.about} className="item__link">
                   <div className="item__img">
                     <img src={thumbnail} alt="book img" />
                   </div>

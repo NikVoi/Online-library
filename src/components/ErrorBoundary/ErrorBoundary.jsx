@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component } from 'react';
 import './style.scss'
 
 export default class ErrorBoundary extends Component {
@@ -22,7 +22,7 @@ export default class ErrorBoundary extends Component {
   render() {
     if (this.state.hasError) {
       return (
-        <h1>Включи vpn</h1>
+        <h1>Ошибка 404</h1>
       );
     }
 

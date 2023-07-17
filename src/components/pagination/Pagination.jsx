@@ -1,13 +1,14 @@
-import { React, useContext } from "react";
-import { Link } from "react-router-dom";
-import ClickContext from "@contexts/ClickContext";
-import { booksItemsPage} from "@constants/constants"
-import "./style.scss";
+import { React, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import ClickContext from '@contexts/ClickContext';
+import { booksItemsPage, routes} from '@constants/constants'
+
+import './style.scss';
 
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
-    behavior: "smooth",
+    behavior: 'smooth',
   });
 };
 
@@ -21,12 +22,12 @@ const Pagination = ({paginate}) => {
     
   if (!loading) {
     return (
-      <div className="pagination">
+      <div className='pagination'>
         {pageNumbers.map((number) => (
-          <div className="pagination__item" key={number} onClick={scrollToTop}>
+          <div className='pagination__item' key={number} onClick={scrollToTop}>
             <Link
-              to="/"
-              className="pagination__item-link"
+              to={routes.mainPage}
+              className='pagination__item-link'
               onClick={() => paginate(number)}
             >
               {number}
