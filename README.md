@@ -4,7 +4,7 @@ Photo-studio is a one-page website Photo Studio. This project showcases the stud
 
 ## Live Demo
 You can access the live version of the project here:  [ task-2-pearl.vercel.app](https://task-2-pearl.vercel.app/)
-** If it doesn't work, try enabling vpn :)
+** If it doesn't work, try enabling vpn :) **
 
 ## 🛠 Skills
 - React(js)
