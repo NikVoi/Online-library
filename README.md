@@ -1,6 +1,6 @@
 # Online-library
 
-Photo-studio is a one-page website Photo Studio. This project showcases the studio's portfolio, contact information, and the ability to book a photo session. The website is responsive, providing both mobile and desktop versions.
+Online Library is a dynamic web application designed to provide users with access to a vast collection of books and resources. Leveraging a combination of cutting-edge technologies, this project offers an engaging and efficient platform for book enthusiasts to explore, search, and access a wide range of literary works.
 
 ## Live Demo
 You can access the live version of the project here:  [ task-2-pearl.vercel.app](https://task-2-pearl.vercel.app/)
